@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: echo Hello, world! This is a simple DevOps Project. Pipeline using Asure DevOps.
   displayName: 'Run a one-line script'
 
 - script: |
