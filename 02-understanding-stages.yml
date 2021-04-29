@@ -16,17 +16,17 @@ stages:
 
 - stage: DevDeployJob
   jobs:
-  - jobs:
+  - job:
     steps: 
     - bash: echo DevDeploy build Completed. 
 - stage: QADeployJob
   jobs:
-  - jobs:
+  - job:
     steps: 
     - bash: echo DQDeploy Job Completed. 
 - stage: ProdDeployJob
   jobs:
-  - jobs:
+  - job:
     steps: 
     - bash: echo ProdDeploy Job Completed. 
 
