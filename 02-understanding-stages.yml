@@ -21,13 +21,13 @@ stages:
     steps: 
     - bash: echo DevDeploy build Completed. 
 - stage: QADeployJob
-  dependsOn: DevDeploy
+  dependsOn: DevDeployJob
   jobs:
   - job:
     steps: 
-    - bash: echo DQDeploy Job Completed. 
+    - bash: echo QADeploy Job Completed. 
 - stage: ProdDeployJob
-  dependsOn: QADeploy
+  dependsOn: QADeployJob
   jobs:
   - job:
     steps: 
