@@ -11,26 +11,33 @@ stages:
     steps: 
     - bash: echo Build First Build Completed.
     - bash: echo $(PipelineLevelVariable)
-  - job:
-    steps: 
-    - bash: echo build Second Job Completed.
-- stage: DevDeploy
-  variables:
-    environments: QA
-  dependsOn: Build
-  jobs:
-  - job:
-    steps: 
-    - bash: echo $(environment)DeployJob. 
-- stage: QADeploy
-  dependsOn: DevDeploy
-  jobs:
-  - job:
-    steps: 
-    - bash: echo $(environment)DeployJob. 
-- stage: ProdDeployJob
-  dependsOn: QADeploy
-  jobs:
-  - job:
-    steps: 
-    - bash: echo $(environment)DeployJob. 
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourceDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactsStagingDirectory)
+  # - job: SecondJob
+  #   steps: 
+  #   - bash: echo build Second Job Completed.
+# - stage: DevDeploy
+#   variables:
+#     environments: QA
+#   dependsOn: Build
+#   jobs:
+#   - job:
+#     steps: 
+#     - bash: echo $(environment)DeployJob. 
+# - stage: QADeploy
+#   dependsOn: DevDeploy
+#   jobs:
+#   - job:
+#     steps: 
+#     - bash: echo $(environment)DeployJob. 
+# - stage: ProdDeployJob
+#   dependsOn: QADeploy
+#   jobs:
+#   - job:
+#     steps: 
+#     - bash: echo $(environment)DeployJob. 
