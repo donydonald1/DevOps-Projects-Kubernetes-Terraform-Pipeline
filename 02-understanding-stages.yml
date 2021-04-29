@@ -17,7 +17,7 @@ stages:
     - bash: echo $(Build.SourceDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
     - bash: ls -R $(System.DefaultWorkingDirectory)
-    - bash: echo $(Build.ArtifactsStagingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
     - bash:  java -version
     - bash: node --version
     - bash: python --version
@@ -30,7 +30,12 @@ stages:
           **/*.yaml
           **/*.tf
         TargetFolder: '$(Build.ArtifactsStagingDirectory)'
-    - bash: ls -R $(Build.ArtifactsStagingDirectory)
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
   # - job: SecondJob
   #   steps: 
   #   - bash: echo build Second Job Completed.
