@@ -22,15 +22,15 @@ stages:
   - job:
     steps: 
     - bash: echo $(environment)DeployJob. 
-- stage: QADeployJob
-  dependsOn: DevDeployJob
+- stage: QADeploy
+  dependsOn: DevDeploy
   jobs:
   - job:
     steps: 
     - bash: echo $(environment)DeployJob. 
 - stage: ProdDeployJob
-  dependsOn: QADeployJob
+  dependsOn: QADeploy
   jobs:
   - job:
     steps: 
-    - bash: echo $(environment)DeployJob 
+    - bash: echo $(environment)DeployJob. 
