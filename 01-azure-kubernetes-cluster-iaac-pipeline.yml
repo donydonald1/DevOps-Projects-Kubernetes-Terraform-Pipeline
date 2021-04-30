@@ -5,7 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo k8s Terraform Azure!
+- script: echo Kubernetes Terraform Azure!
   displayName: 'Run a one-line script'
 
 - task: DownloadSecureFile@1
